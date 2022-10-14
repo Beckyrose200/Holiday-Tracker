@@ -1,16 +1,60 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>HolidayTracker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<% content_for :page_title do %>
+    Holiday Tracker
+<% end %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+<% end %>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+<% content_for :header_content do %>
+<% end %>
+
+<% content_for :cookies_banner do %>
+  <%= render partial: "cookies/banner" %>
+<% end %>
+
+<% content_for :phase_banner do %>
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        <%= t(".beta")  %>
+      </strong>
+      <span class="govuk-phase-banner__text">
+        <%= t(
+              ".feedback",
+              link: link_to(
+                t(".feedback_link"),
+                t(".feedback_url"),
+                class: "govuk-link",
+                target: "_blank"
+              )
+            ).html_safe
+        %>
+      </span>
+    </p>
+  </div>
+<% end %>
+
+<% content_for :back_link do %>
+    Link to go back
+<% end %>
+
+<% content_for :footer do %>
+  <span class="govuk-visually-hidden"><%= t(".support_text") %></span>
+  <p class="govuk-!-font-weight-bold"><%= t(".support_text") %></p>
+  <ul class="govuk-footer__inline-list">
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to "Privacy", "/pages/privacy", class: "govuk-footer__link" %>
+    </li>
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to "Cookies", "/pages/cookies", class: "govuk-footer__link" %>
+    </li>
+    <li class="govuk-footer__inline-list-item">
+      <%= link_to "Accessibility", "/pages/accessibility", class: "govuk-footer__link" %>
+    </li>
+  </ul>
+<% end %>
+
+<%= render template: "layouts/defra_ruby_template" %>
+

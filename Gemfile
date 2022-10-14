@@ -9,6 +9,18 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Gov uk formbuilder template
+gem "govuk_design_system_formbuilder"
+
+# GOV.UK design system styling
+gem "defra_ruby_template"
+
+# To enable defra ruby template to work
+gem "sassc-rails"
+
+# Use jquery as the JavaScript library
+gem "jquery-rails"
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
